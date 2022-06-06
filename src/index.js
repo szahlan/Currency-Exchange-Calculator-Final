@@ -13,7 +13,8 @@ $(document).ready(function() {
     let promise = ExchangeRateService.getRate();
     promise.then(function(response) {
       const body = JSON.parse(response);
-      $('.showValue').text(`${usd} in ${requestedCurrency} is ${usd * body.conversion_rates.requestedCurrency}`);
+      const convertedValue = usd * parseInt(body.conversion_rates.requestedCurrency);
+      $('.showValue').text(`${usd} USD in ${requestedCurrency} is ${convertedValue}`);
     }, function(error) {
         $('.showErrors').text(`There was an error processing your request: ${error}`);
     });
