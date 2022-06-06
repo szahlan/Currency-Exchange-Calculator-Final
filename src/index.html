@@ -8,11 +8,37 @@
     <h1>Currency Exchange Calculator</h1>
     <p>This calculator will convert US dollars to the currency of your choosing from the list below, based on the latest exchange rates.</p>
     <div>
-      <form id="amoutToConvert">
+      <form id="conversion-form">
         <div class="form-group">
-          <label for="userInput">Enter the amount in USD that you'd like to convert</label>
-          <input id="dollarAmount" class="form-control" type="number">
+          <label for="user-input">Enter the amount in USD that you'd like to convert</label>
+          <input id="dollar-amount" class="form-control" type="number">
         </div>
+
+        <p>Choose the currency you'd like the above amount converted to:</p>
+        <label>
+          <input type="radio" name="currency" value="euros" checked>
+          EUR
+        </label><br>
+        <label>
+          <input type="radio" name="currency" value="canadian-dollars">
+          CAD
+        </label><br>
+        <label>
+          <input type="radio" name="currency" value="japanese-yen">
+          JPY
+        </label><br>
+        <label>
+          <input type="radio" name="currency" value="uae-dirham">
+          AED
+        </label><br>
+        <label>
+          <input type="radio" name="currency" value="nigerian-naira">
+          NGN
+        </label><br>
+        <label>
+          <input type="radio" name="currency" value="Simoleons">
+          SIM
+        </label><br>
         <button type="submit" class="btn btn-primary">view Result</button>
       </form>
     </div>
