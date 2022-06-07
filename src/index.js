@@ -11,12 +11,20 @@ $(document).ready(function() {
     let usd = parseInt($('#dollar-amount').val());
     let requestedCurrency = $('input[name="currency"]:checked').val();
     let promise = ExchangeRateService.getRate();
+    // console.log(usd);
+    
     promise.then(function(response) {
       const body = JSON.parse(response);
+      // console.log(body.conversion_rates.requestedCurrency);
+      // console.log(usd * body.conversion_rates.requestedCurrency);
       const convertedValue = usd * parseInt(body.conversion_rates.requestedCurrency);
-      $('.showValue').text(`${usd} USD in ${requestedCurrency} is ${convertedValue}`);
+      if (requestedCurrency === "SIM") {
+        $('.showValue').text("Simoleon conversions are unfortunately not available on this page. We apologize for the inconvenience."); 
+      } else {
+        $('.showValue').text(`${usd} USD in ${requestedCurrency} is ${convertedValue}`);
+      }
     }, function(error) {
         $('.showErrors').text(`There was an error processing your request: ${error}`);
-    });
+      });
   });
 });
