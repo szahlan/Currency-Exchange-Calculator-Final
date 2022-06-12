@@ -16,8 +16,8 @@ $(document).ready(function() {
       const body = JSON.parse(response);
       const convertedValue = usd * body.conversion_rates[requestedCurrency];
   
-      if (requestedCurrency === "SIM") {
-        $('.showValue').text("Simoleon conversions are unfortunately not available on this page. We apologize for the inconvenience."); 
+      if (body.conversion_rates[requestedCurrency] === undefined) {
+        $('.showValue').text(`${requestedCurrency} is not a valid currency. Please try again.`); 
       } else {
         $('.showValue').text(`${usd} USD in ${requestedCurrency} is ${convertedValue}`);
       }
